@@ -1,0 +1,71 @@
+import createHome from "./home";
+
+const createHeader = () => {
+  const header = document.createElement("header");
+  const logoContainer = document.createElement("div");
+  const titleContainer = document.createElement("div");
+  const logo = document.createElement("img");
+  const title = document.createElement("h1");
+  const nav = document.createElement("div");
+  const homeBtn = document.createElement("div");
+  const menuBtn = document.createElement("div");
+  const contactBtn = document.createElement("div");
+  logo.src = "./img/logo.svg";
+  logo.alt = "Three Forks logo";
+  homeBtn.setAttribute("id", "home-btn");
+  menuBtn.setAttribute("id", "menu-btn");
+  contactBtn.setAttribute("id", "contact-btn");
+  header.classList.add("header");
+  logoContainer.classList.add("logo-container");
+  titleContainer.classList.add("title-container");
+  logo.classList.add("logo");
+  title.classList.add("title");
+  nav.classList.add("nav");
+  title.textContent = "Three Forks Restaurant";
+  homeBtn.textContent = "Home";
+  menuBtn.textContent = "Menu";
+  contactBtn.textContent = "Contact";
+  header.appendChild(logoContainer);
+  logoContainer.appendChild(logo);
+  header.appendChild(titleContainer);
+  titleContainer.appendChild(title);
+  header.appendChild(nav);
+  nav.appendChild(homeBtn);
+  nav.appendChild(menuBtn);
+  nav.appendChild(contactBtn);
+  return header;
+};
+
+const createFooter = () => {
+  const footer = document.createElement("footer");
+  const footerNav = document.createElement("nav");
+  const authorContainer = document.createElement("a");
+  const ghLogo = document.createElement("i");
+  const authorInfo = document.createElement("span");
+  const mentionContainerOne = document.createElement("div");
+  authorContainer.target = "_blank";
+  authorContainer.href = "https://github.com/carlosfrontend";
+  footer.classList.add("footer");
+  footerNav.classList.add("footer-nav");
+  authorContainer.classList.add("author-container");
+  ghLogo.classList.add("fa-brands");
+  ghLogo.classList.add("fa-github");
+  authorInfo.classList.add("author-info");
+  mentionContainerOne.classList.add("mention-container-one");
+  mentionContainerOne.innerHTML = ` <span>Photo by <a class="mention-link" target="_blank"   href="https://unsplash.com/es/@anna_tukhfatullina?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Anna Tukhfatullina</a> in <a class="mention-link" target="_blank" href="https://unsplash.com/es/fotos/tarta-de-frambuesa-Mzy-OjtCI70?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>`;
+  footer.appendChild(footerNav);
+  footerNav.appendChild(authorContainer);
+  authorContainer.appendChild(ghLogo);
+  authorInfo.textContent = ` Coded by carlosfrontend - ${new Date().getFullYear()}`;
+  authorContainer.appendChild(authorInfo);
+  footerNav.appendChild(mentionContainerOne);
+  return footer;
+};
+const site = () => {
+  const content = document.querySelector("#content");
+  content.appendChild(createHeader());
+  content.appendChild(createHome());
+  content.appendChild(createFooter());
+};
+
+export default site;

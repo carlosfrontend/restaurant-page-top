@@ -1,1 +1,3 @@
-console.log('Works!')
+import initialPageLoader from "./initialPageLoader";
+
+initialPageLoader();
