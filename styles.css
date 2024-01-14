@@ -1,8 +1,13 @@
+@font-face {
+  font-family: "DKCrayonCrumble";
+  src: url("./fonts/DKCrayonCrumble.woff") format("woff"),
+    url("./fonts/DKCrayonCrumble.woff2") url("woff2");
+  font-weight: 400;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid yellow; */
 }
 
 html {
@@ -89,11 +94,10 @@ body,
   padding: 0.5em;
 }
 
-.main {
+.home-container {
   background-color: #000000c1;
   background-image: url("./img/background.jpg");
   background-position: center center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: darken;
@@ -149,15 +153,93 @@ body,
   text-decoration: none;
   color: #fff556;
 }
-.white{
-  color:white;
+.white {
+  color: white;
   font-size: 2rem;
 }
 
+/* Menu styles */
+.menu-container {
+  /* height: 100vh; */
+  background-color: #00000086;
+  background-image: url("./img/board.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  font-family: "DKCrayonCrumble", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.chef-logo {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.header-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+  padding: 2em;
+}
+
+.header-title {
+  color: #ffffff;
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 4px solid #fff;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+}
+.starters-container,
+.maincourse-container,
+.dessert-container {
+  color: #ffffff;
+  display: flex;
+    padding: 1em;
+    justify-content: start;
+    align-items: center;
+    gap: 1em;
+    flex-direction: column;
+}
+.starters-container h3,
+.maincourse-container h3,
+.dessert-container h3 {
+  text-decoration: underline;
+  font-size: 2rem;
+}
+
+.starters-container  p,
+.maincourse-container p,
+.dessert-container p {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.salad-logo,
+.meal-logo,
+.cake-logo {
+  width: 40px;
+  height: 40px;
+}
+
+/* Contact styles */
+
+.contact-container {
+  height: 100vh;
+}
+
+/* Home Media queries */
+
 @media screen and (min-width: 425px) {
-  .header {
-    /* background-color: red; */
-  }
   .logo {
     width: 10%;
   }
@@ -167,9 +249,6 @@ body,
 }
 
 @media screen and (min-width: 768px) {
-  .header {
-    /* background-color: blue; */
-  }
   .logo {
     width: 8%;
   }
@@ -187,15 +266,10 @@ body,
     height: 35vh;
   }
 
-  .main {
-    display: flex;
-    justify-content: center;
-  }
-
-  .main-content {
+  .home-container {
     display: flex;
     flex-direction: column;
-    width: 55%;
+    width: 100%;
   }
 
   .history-text > * {
@@ -205,31 +279,30 @@ body,
 
 @media screen and (min-width: 1024px) {
   .header {
-    /* background-color: rgb(108, 82, 53); */
     display: grid;
     grid-template-columns: 1fr 3fr 6fr;
     height: 15vh;
   }
 
-  .main{
+  .home-container {
     width: 100%;
   }
 
-  .main-content{
+  .home-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr  1fr;
+    grid-template-columns: 1fr 1fr;
     height: 100vh;
   }
-.cake-container{
-  height: 100vh;
-}
-.history-container {
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  .cake-container {
+    height: 100vh;
+  }
+  .history-container {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .since {
     font-size: 4rem;
   }
@@ -248,7 +321,6 @@ body,
 
 @media screen and (min-width: 1140px) {
   .header {
-    /* background-color: rgb(108, 82, 53); */
     display: grid;
     grid-template-columns: 1fr 3fr 6fr;
     height: 15vh;
