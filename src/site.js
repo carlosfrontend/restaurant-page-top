@@ -62,9 +62,12 @@ const createFooter = () => {
   return footer;
 };
 const site = () => {
+  const main = document.createElement("div");
   const content = document.querySelector("#content");
+  main.classList.add("main");
   content.appendChild(createHeader());
-  content.appendChild(createHome());
+  content.appendChild(main);
+  main.appendChild(createHome());
   content.appendChild(createFooter());
 };
 

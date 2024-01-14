@@ -3,7 +3,7 @@ const createContact = () => {
   const text = document.createElement("p");
   text.textContent = "Hello Contact!";
   element.append(text);
-  element.classList.add("white");
+  element.classList.add("contact-container");
   return element;
 };
 

@@ -1,6 +1,5 @@
 const createHome = () => {
-  const mainContainer = document.createElement("div");
-  const mainContent = document.createElement("div");
+  const homeContainer = document.createElement("div");
   const cakeContainer = document.createElement("div");
   const historyContainer = document.createElement("div");
   const historyText = document.createElement("div");
@@ -13,8 +12,7 @@ const createHome = () => {
   cakeImg.src = "./img/cake.jpg";
   cakeImg.classList.add("cake");
   cakeContainer.alt = "A strawberry cake picture";
-  mainContainer.classList.add("main");
-  mainContent.classList.add("main-content");
+  homeContainer.classList.add("home-container");
   cakeContainer.classList.add("cake-container");
   historyContainer.classList.add("history-container");
   historyText.classList.add("history-text");
@@ -22,12 +20,12 @@ const createHome = () => {
   welcomeTextOne.classList.add("text-1");
   welcomeTextTwo.classList.add("text-2");
   welcomeTextThree.classList.add("text-3");
-  mainContainer.appendChild(mainContent);
-  mainContent.appendChild(cakeContainer);
-  mainContent.appendChild(historyContainer);
+  
+  homeContainer.appendChild(cakeContainer);
+  homeContainer.appendChild(historyContainer);
   cakeContainer.appendChild(cakeImg);
   historyContainer.appendChild(sinceText);
-  historyContainer.appendChild(historyText)
+  historyContainer.appendChild(historyText);
   sinceText.textContent = "Cooking Since 1978";
   welcomeTextOne.textContent =
     "We have been at your service for more than 40 years.";
@@ -35,10 +33,10 @@ const createHome = () => {
     "We always work with the best qualities of meat, pasta and fish.";
   welcomeTextThree.textContent =
     "We have been chosen this year as the best local Mediterranean food restaurant.";
-    historyText.appendChild(welcomeTextOne);
-    historyText.appendChild(welcomeTextTwo);
-    historyText.appendChild(welcomeTextThree);
-  return mainContainer;
+  historyText.appendChild(welcomeTextOne);
+  historyText.appendChild(welcomeTextTwo);
+  historyText.appendChild(welcomeTextThree);
+  return homeContainer;
 };
 
 export default createHome;
