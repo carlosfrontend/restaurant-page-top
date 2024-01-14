@@ -15,20 +15,23 @@ const removeContent = () => {
 };
 
 const showsHome = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   removeContent();
   main.append(createHome());
 };
 
 const showsMenu = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   removeContent();
   main.append(createMenu());
+ 
 };
 
 const showsContact = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   removeContent();
   main.append(createContact());
 };
-
 homeBtn.addEventListener("click", showsHome);
 menuBtn.addEventListener("click", showsMenu);
 contactBtn.addEventListener("click", showsContact);
