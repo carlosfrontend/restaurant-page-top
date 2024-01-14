@@ -1,5 +1,4 @@
 const createHome = () => {
-  const content = document.querySelector("#content");
   const mainContainer = document.createElement("div");
   const mainContent = document.createElement("div");
   const cakeContainer = document.createElement("div");
