@@ -43,6 +43,8 @@ const createFooter = () => {
   const ghLogo = document.createElement("i");
   const authorInfo = document.createElement("span");
   const mentionContainerOne = document.createElement("div");
+  const mentionContainerTwo = document.createElement("div");
+  const mentionContainerThree = document.createElement("div");
   authorContainer.target = "_blank";
   authorContainer.href = "https://github.com/carlosfrontend";
   footer.classList.add("footer");
@@ -52,13 +54,19 @@ const createFooter = () => {
   ghLogo.classList.add("fa-github");
   authorInfo.classList.add("author-info");
   mentionContainerOne.classList.add("mention-container-one");
+  mentionContainerTwo.classList.add("mention-container-two");
+  mentionContainerThree.classList.add("mention-container-three");
   mentionContainerOne.innerHTML = ` <span>Photo by <a class="mention-link" target="_blank"   href="https://unsplash.com/es/@anna_tukhfatullina?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Anna Tukhfatullina</a> in <a class="mention-link" target="_blank" href="https://unsplash.com/es/fotos/tarta-de-frambuesa-Mzy-OjtCI70?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>`;
+  mentionContainerTwo.innerHTML = `<span>Photo by <a class="mention-link" target="_blank" href="https://unsplash.com/es/@catrionaobrian?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ekaterina Novitskaya</a> in <a class="mention-link"  target="_blank" href="https://unsplash.com/es/fotos/textil-negro-sobre-textil-blanco-gLroHoWh_as?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>`;
+  mentionContainerThree.innerHTML = ` <span>Photo by <a class="mention-link" target="_blank" href="https://unsplash.com/es/@andersjilden?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Anders Jildén</a> in <a class="mention-link" target="_blank" href="https://unsplash.com/es/fotos/vista-aerea-del-pueblo-en-el-acantilado-de-la-montana-durante-la-puesta-del-sol-naranja-cYrMQA7a3Wc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>`;
   footer.appendChild(footerNav);
   footerNav.appendChild(authorContainer);
   authorContainer.appendChild(ghLogo);
   authorInfo.textContent = ` Coded by carlosfrontend - ${new Date().getFullYear()}`;
   authorContainer.appendChild(authorInfo);
   footerNav.appendChild(mentionContainerOne);
+  footerNav.appendChild(mentionContainerTwo);
+  footerNav.appendChild(mentionContainerThree);
   return footer;
 };
 const site = () => {
