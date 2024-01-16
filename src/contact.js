@@ -1,33 +1,51 @@
+import { createForm, createSimpleElement } from "./htmlFactory";
+
 const createContact = () => {
-  const element = document.createElement("div");
-  const contactTitle = document.createElement("h2");
-  const mapBox = document.createElement("div");
-  const addressContainer = document.createElement("div");
-  const addressText = document.createElement("p");
-  const locationLogo = `<i class="fa-solid fa-location-dot"></i>`;
-  const phoneContainer = document.createElement("div");
-  const phonelogo = `<i class="fa-solid fa-phone-volume"></i>`;
-  const phoneText = document.createElement("p");
-  phoneContainer.classList.add("phone-container");
-  phoneText.classList.add("phone-text");
-  contactTitle.textContent = "Where can you find us?";
-  addressContainer.classList.add("address-container");
-  addressText.classList.add("address-text");
-  addressText.innerText = "Avenue without number near the beach 2800145";
-  phoneText.textContent = "555-888-999"
-  addressContainer.innerHTML = locationLogo;
-  addressContainer.appendChild(addressText);
-  phoneContainer.innerHTML = phonelogo;
-  phoneContainer.appendChild(phoneText);
-  mapBox.classList.add("map-box");
-  contactTitle.classList.add("contact-title");
-  const iframe = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22090.352271187105!2d-0.48787908939071833!3d38.16741749287431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd624fc6db3898e9%3A0x8aa5dd017ce61888!2sIsla%20de%20Tabarca!5e0!3m2!1ses!2ses!4v1705261946029!5m2!1ses!2ses" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
-  element.append(contactTitle);
-  element.append(mapBox);
-  element.append(addressContainer);
-  element.append(phoneContainer);
-  mapBox.innerHTML = iframe;
-  element.classList.add("contact-container");
+  const element = createSimpleElement("div", ".contact-container");
+  const formContainer = createForm("form", "#contact-form", "/", "POST");
+  const formTitle = createSimpleElement("h2", ".form-title");
+  const submitBtn = document.createElement("input");
+  const nameLabel = document.createElement("label");
+  const nameInput = document.createElement("input");
+  const dateLabel = document.createElement("label");
+  const dateInput = document.createElement("input");
+  const phoneLabel = document.createElement("label");
+  const phoneInput = document.createElement("input");
+  formTitle.textContent = "Don't wait any longer and book";
+  nameLabel.setAttribute("for", "name");
+  nameLabel.textContent = "Client Name";
+  nameInput.setAttribute("id", "name");
+  nameInput.setAttribute("type", "text");
+  nameInput.setAttribute("required", true);
+  nameInput.setAttribute("placeholder", "Your name here");
+
+  dateLabel.setAttribute("for", "date");
+  dateLabel.textContent = "Desired Date";
+  dateInput.setAttribute("id", "date");
+  dateInput.setAttribute("type", "date");
+  dateInput.setAttribute("required", true);
+
+  phoneLabel.setAttribute("for", "phone");
+  phoneLabel.textContent = "Client Phone";
+  phoneInput.setAttribute("id", "phone");
+  phoneInput.setAttribute("type", "tel");
+  phoneInput.setAttribute("required", true);
+  phoneInput.setAttribute("placeholder", "Your phone here");
+
+  submitBtn.setAttribute("type", "submit");
+  submitBtn.setAttribute("id", "submit-button");
+  submitBtn.setAttribute("value", "Reserve !");
+  formContainer.appendChild(formTitle)
+  formContainer.appendChild(nameLabel)
+  formContainer.appendChild(nameInput)
+  formContainer.appendChild(dateLabel)
+  formContainer.appendChild(dateInput)
+  formContainer.appendChild(phoneLabel)
+  formContainer.appendChild(phoneInput)
+  
+  formContainer.appendChild(submitBtn);
+  element.appendChild(formContainer);
+
   return element;
 };
 

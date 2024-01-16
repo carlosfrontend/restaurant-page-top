@@ -38,4 +38,18 @@ const createLink = (tagName, indentifier, myTarget, myHref, text) => {
   return element;
 };
 
-export { createSimpleElement, createImg, createText, createLink};
+const createForm = (tagName, indentifier, action, method) => {
+  const element = document.createElement(tagName);
+  setIdentifier(element, indentifier);
+  element.action = action;
+  element.method = method;
+  return element;
+};
+
+export {
+  createSimpleElement,
+  createImg,
+  createText,
+  createLink,
+  createForm,
+};

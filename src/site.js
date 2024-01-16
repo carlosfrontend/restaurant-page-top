@@ -23,6 +23,9 @@ const createHeader = () => {
     createText("div", ".nav-item", "Menu"),
     createText("div", ".nav-item", "Contact"),
   ];
+  for (let i = 0; i < navItems.length; i++) {
+    navItems[i].setAttribute("tabindex", `${i}`);
+  }
   logoContainer.appendChild(logo);
   titleContainer.appendChild(title);
   header.appendChild(logoContainer);

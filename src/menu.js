@@ -1,102 +1,71 @@
+import { createSimpleElement, createImg, createText } from "./htmlFactory";
 const createMenu = () => {
-  const element = document.createElement("div");
-  const headermenu = document.createElement("div");
-  const headerLogo = document.createElement("img");
-  const headerTitle = document.createElement("h2");
-  const startersContainer = document.createElement("div");
-  const mainCourseContainer = document.createElement("div");
-  const dessertContainer = document.createElement("div");
-  const startersLogo = document.createElement("img");
-  const startersTitle = document.createElement("h3");
-  const mainCourseLogo = document.createElement("img");
-  const mainCourseTitle = document.createElement("h3");
-  const dessertLogo = document.createElement("img");
-  const dessertTitle = document.createElement("h3");
-  const boxes = document.createElement("div");
-  const starterOne = document.createElement("p");
-  const starterTwo = document.createElement("p");
-  const starterThree = document.createElement("p");
-  const starterFour = document.createElement("p");
-  const mainOne = document.createElement("p");
-  const mainTwo = document.createElement("p");
-  const mainThree = document.createElement("p");
-  const mainFour = document.createElement("p");
-  const dessertOne = document.createElement("p");
-  const dessertTwo = document.createElement("p");
-  const dessertThree = document.createElement("p");
-  const dessertFour = document.createElement("p");
-  boxes.classList.add("boxes");
-  startersLogo.classList.add("salad-logo");
-  mainCourseLogo.classList.add("meal-logo");
-  dessertLogo.classList.add("cake-logo");
-  startersLogo.src = "./img/salad.svg";
-  startersLogo.alt = "A salad logo";
-  startersTitle.innerText = "STARTERS";
-  mainCourseLogo.src = "./img/meal.svg";
-  mainCourseLogo.alt = "A meal logo";
-  mainCourseTitle.innerText = "MAIN COURSE";
-  dessertLogo.src = "./img/cake-logo.svg";
-  dessertLogo.alt = "A cake logo";
-  dessertTitle.innerText = "DESSERT";
-  headerLogo.src = "./img/chef-icon.svg";
-  headerLogo.alt = "A chief logo";
-  headerLogo.classList.add("chef-logo");
-  headermenu.classList.add("header-menu");
-  headerTitle.classList.add("header-title");
-  startersContainer.classList.add("starters-container");
-  mainCourseContainer.classList.add("maincourse-container");
-  dessertContainer.classList.add("dessert-container");
-  headerTitle.innerText = "OUR MENU";
-  element.classList.add("menu-container");
-  headermenu.appendChild(headerLogo);
-  headermenu.appendChild(headerTitle);
-  element.appendChild(headermenu);
-  element.appendChild(boxes);
-  boxes.appendChild(startersContainer);
-  boxes.appendChild(mainCourseContainer);
-  boxes.appendChild(dessertContainer);
-  startersContainer.appendChild(startersLogo);
-  starterOne.classList.add("starter-one");
-  starterTwo.classList.add("starter-two");
-  starterThree.classList.add("starter-three");
-  starterFour.classList.add("starter-four");
-  mainOne.classList.add("main-one");
-  mainTwo.classList.add("main-two");
-  mainThree.classList.add("main-three");
-  mainFour.classList.add("main-four");
-  dessertOne.classList.add("dessert-one");
-  dessertTwo.classList.add("dessert-two");
-  dessertThree.classList.add("dessert-three");
-  dessertFour.classList.add("dessert-four");
-  starterOne.innerHTML = "Mediterranean salad";
-  starterTwo.innerHTML = "Andalusian gazpacho";
-  starterThree.innerHTML = "Ham and cheese saint jacobs";
-  starterFour.innerHTML = "Castilian soup";
-  mainOne.innerHTML = "Beef ragout";
-  mainTwo.innerHTML = "Baked macaroni with sirloin";
-  mainThree.innerHTML = "Lamb chops";
-  mainFour.innerHTML = "Fried turbot with potatoes";
-  dessertOne.textContent = 'Homemade cheese and blueberry pie';
-  dessertTwo.textContent = 'Chocolate and pistachio macadamia nut ice cream';
-  dessertThree.textContent = 'Catalan cream';
-  dessertFour.innerText = 'Fresh fruit';
-  startersContainer.appendChild(startersTitle);
-  startersContainer.appendChild(starterOne);
-  startersContainer.appendChild(starterTwo);
-  startersContainer.appendChild(starterThree);
-  startersContainer.appendChild(starterFour);
-  mainCourseContainer.appendChild(mainCourseLogo);
-  mainCourseContainer.appendChild(mainCourseTitle);
-  mainCourseContainer.appendChild(mainOne);
-  mainCourseContainer.appendChild(mainTwo);
-  mainCourseContainer.appendChild(mainThree);
-  mainCourseContainer.appendChild(mainFour);
-  dessertContainer.appendChild(dessertLogo);
-  dessertContainer.appendChild(dessertTitle);
-  dessertContainer.appendChild(dessertOne);
-  dessertContainer.appendChild(dessertTwo);
-  dessertContainer.appendChild(dessertThree);
-  dessertContainer.appendChild(dessertFour);
+  const element = createSimpleElement("div", ".menu-container");
+  const menuHeader = createSimpleElement("div", ".menu-header");
+  const menuTitle = createText("h2", ".menu-title", "Daily Menu");
+  const menuBox = createSimpleElement("div", ".menu-box");
+  const menuSections = [
+    createSimpleElement("div", ".menu-section"),
+    createSimpleElement("div", ".menu-section"),
+    createSimpleElement("div", ".menu-section"),
+  ];
+  const menuImages = [
+    createImg("img", ".menu-image", "./img/salad.svg", "A salad logo"),
+    createImg("img", ".menu-image", "./img/meal.svg", "A meal logo"),
+    createImg("img", ".menu-image", "./img/cake-logo.svg", "A cake logo"),
+  ];
+
+  const menuTitles = [
+    createText("h3", ".menu-section-title", "Starters"),
+    createText("h3", ".menu-section-title", "Main Course"),
+    createText("h3", ".menu-section-title", "Dessert"),
+  ];
+
+  const starters = [
+    createText("p", ".menu-item", "Mediterran salad. 8 €"),
+    createText("p", ".menu-item", "Andalusian gazpacho. 7 €"),
+    createText("p", ".menu-item", "Ham and cheese saint jacobs. 6,50 €"),
+    createText("p", ".menu-item", "Castilian soup. 7,20 €"),
+  ];
+
+  const mainCoursers = [
+    createText("p", ".menu-item", "Beef ragout 10 €"),
+    createText("p", ".menu-item", "Baked macaroni with sirloin 8 €"),
+    createText("p", ".menu-item", "Lamb chops 14 €"),
+    createText("p", ".menu-item", "Fried turbot with potatoes 12 €"),
+  ];
+
+  const desserts = [
+    createText("p", ".menu-item", "Homemade cheese and blueberry pie 4.20 €"),
+    createText(
+      "p",
+      ".menu-item",
+      "Chocolate and pistachio macadamia nut ice cream 5 €"
+    ),
+    createText("p", ".menu-item", "Catalan cream 6 €"),
+    createText("p", ".menu-item", "Fresh fruit 3.50 €"),
+  ];
+  const menuLogo = createImg(
+    "img",
+    ".menu-logo",
+    "./img/chef-icon.svg",
+    "A chef icon"
+  );
+  menuHeader.appendChild(menuLogo);
+  menuHeader.appendChild(menuTitle);
+  element.appendChild(menuHeader);
+
+  for (let i = 0; i < menuSections.length; i++) {
+    menuSections[i].appendChild(menuImages[i]);
+    menuSections[i].appendChild(menuTitles[i]);
+    menuBox.appendChild(menuSections[i]);
+  }
+  element.appendChild(menuBox);
+  for (let j = 0; j < starters.length; j++) {
+    menuSections[0].appendChild(starters[j]);
+    menuSections[1].appendChild(mainCoursers[j]);
+    menuSections[2].appendChild(desserts[j]);
+  }
   return element;
 };
 
