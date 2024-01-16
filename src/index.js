@@ -12,20 +12,20 @@ const removeContent = () => {
 };
 
 const showsHome = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
   removeContent();
+  window.scrollTo({ top: 100, behavior: "smooth" });
   main.append(createHome());
 };
 
 const showsMenu = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
   removeContent();
+  window.scrollTo({ top: 100, behavior: "smooth" });
   main.append(createMenu());
 };
 
 const showsContact = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
   removeContent();
+  window.scrollTo({ top: 100, behavior: "smooth" });
   main.append(createContact());
 };
 
