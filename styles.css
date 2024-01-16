@@ -53,6 +53,11 @@ body {
 .logo {
   height: 4em;
   padding-top: 0.5em;
+  cursor: pointer;
+}
+
+.title-container{
+  cursor: pointer;
 }
 
 .title {
