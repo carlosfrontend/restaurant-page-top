@@ -1,41 +1,40 @@
+import { createImg, createSimpleElement, createText } from "./htmlFactory";
 const createHome = () => {
-  const homeContainer = document.createElement("div");
-  const cakeContainer = document.createElement("div");
-  const historyContainer = document.createElement("div");
-  const historyText = document.createElement("div");
-  const sinceText = document.createElement("h2");
-  const cakeImg = document.createElement("img");
-  const welcomeTextOne = document.createElement("p");
-  const welcomeTextTwo = document.createElement("p");
-  const welcomeTextThree = document.createElement("p");
+  const homeContainer = createSimpleElement("div", ".home-container");
+  const imgContainer = createSimpleElement("div", ".cake-container");
+  const historyContainer = createSimpleElement("div", ".history-container");
+  const historyTitle = createText("h2", ".history-title", "Cooking Since 1978");
+  const historyItems = [
+    createText(
+      "p",
+      ".history-item",
+      "More than 40 years at your service. We know how you prefer things and that's why we do them as always."
+    ),
+    createText(
+      "p",
+      ".history-item",
+      "We offer you the best quality and the freshest products in the environment so that you can enjoy an unforgettable moment."
+    ),
+    createText(
+      "p",
+      ".history-item",
+      "Go ahead, come try our best recipes and enjoy the tranquility and our sea views."
+    ),
+  ];
+  const cakeImg = createImg(
+    "img",
+    ".cake",
+    "./img/cake.jpg",
+    "A picture of a cake"
+  );
+  imgContainer.appendChild(cakeImg);
 
-  cakeImg.src = "./img/cake.jpg";
-  cakeImg.classList.add("cake");
-  cakeContainer.alt = "A strawberry cake picture";
-  homeContainer.classList.add("home-container");
-  cakeContainer.classList.add("cake-container");
-  historyContainer.classList.add("history-container");
-  historyText.classList.add("history-text");
-  sinceText.classList.add("since");
-  welcomeTextOne.classList.add("text-1");
-  welcomeTextTwo.classList.add("text-2");
-  welcomeTextThree.classList.add("text-3");
-  
-  homeContainer.appendChild(cakeContainer);
+  homeContainer.appendChild(imgContainer);
+  historyContainer.appendChild(historyTitle);
+  for (let i = 0; i < historyItems.length; i++) {
+    historyContainer.appendChild(historyItems[i]);
+  }
   homeContainer.appendChild(historyContainer);
-  cakeContainer.appendChild(cakeImg);
-  historyContainer.appendChild(sinceText);
-  historyContainer.appendChild(historyText);
-  sinceText.textContent = "Cooking Since 1978";
-  welcomeTextOne.textContent =
-    "We have been at your service for more than 40 years.";
-  welcomeTextTwo.textContent =
-    "We always work with the best qualities of meat, pasta and fish.";
-  welcomeTextThree.textContent =
-    "We have been chosen this year as the best local Mediterranean food restaurant.";
-  historyText.appendChild(welcomeTextOne);
-  historyText.appendChild(welcomeTextTwo);
-  historyText.appendChild(welcomeTextThree);
   return homeContainer;
 };
 

@@ -1,78 +1,127 @@
 import createHome from "./home";
+import {
+  createSimpleElement,
+  createImg,
+  createText,
+  createLink,
+} from "./htmlFactory";
 
 const createHeader = () => {
-  const header = document.createElement("header");
-  const logoContainer = document.createElement("div");
-  const titleContainer = document.createElement("div");
-  const logo = document.createElement("img");
-  const title = document.createElement("h1");
-  const nav = document.createElement("div");
-  const homeBtn = document.createElement("div");
-  const menuBtn = document.createElement("div");
-  const contactBtn = document.createElement("div");
-  logo.src = "./img/logo.svg";
-  logo.alt = "Three Forks logo";
-  homeBtn.setAttribute("id", "home-btn");
-  menuBtn.setAttribute("id", "menu-btn");
-  contactBtn.setAttribute("id", "contact-btn");
-  header.classList.add("header");
-  logoContainer.classList.add("logo-container");
-  titleContainer.classList.add("title-container");
-  logo.classList.add("logo");
-  title.classList.add("title");
-  nav.classList.add("nav");
-  title.textContent = "Three Forks Restaurant";
-  homeBtn.textContent = "Home";
-  menuBtn.textContent = "Menu";
-  contactBtn.textContent = "Contact";
-  header.appendChild(logoContainer);
+  const header = createSimpleElement("header", ".header");
+  const logoContainer = createSimpleElement("div", ".logo-container");
+  const titleContainer = createSimpleElement("div", ".title-container");
+  const navContainer = createSimpleElement("nav", ".nav");
+  const logo = createImg(
+    "img",
+    ".logo",
+    "./img/logo.svg",
+    "A picture of three forks"
+  );
+  const title = createText("h1", ".title", "Three Forks");
+  const navItems = [
+    createText("div", ".nav-item", "Home"),
+    createText("div", ".nav-item", "Menu"),
+    createText("div", ".nav-item", "Contact"),
+  ];
   logoContainer.appendChild(logo);
-  header.appendChild(titleContainer);
   titleContainer.appendChild(title);
-  header.appendChild(nav);
-  nav.appendChild(homeBtn);
-  nav.appendChild(menuBtn);
-  nav.appendChild(contactBtn);
+  header.appendChild(logoContainer);
+  header.appendChild(titleContainer);
+  header.appendChild(navContainer);
+  for (let i = 0; i <= navItems.length - 1; i++) {
+    navContainer.appendChild(navItems[i]);
+  }
   return header;
 };
 
 const createFooter = () => {
-  const footer = document.createElement("footer");
-  const footerNav = document.createElement("nav");
-  const authorContainer = document.createElement("a");
-  const ghLogo = document.createElement("i");
-  const authorInfo = document.createElement("span");
-  const mentionContainerOne = document.createElement("div");
-  const mentionContainerTwo = document.createElement("div");
-  const mentionContainerThree = document.createElement("div");
-  authorContainer.target = "_blank";
-  authorContainer.href = "https://github.com/carlosfrontend";
-  footer.classList.add("footer");
-  footerNav.classList.add("footer-nav");
-  authorContainer.classList.add("author-container");
-  ghLogo.classList.add("fa-brands");
+  const footer = createSimpleElement("footer", ".footer");
+  const ghLogo = createSimpleElement("i", ".fa-brands");
+  const footerNav = createSimpleElement("nav", ".footer-nav");
+  const authorItem = createLink(
+    "a",
+    ".footer-nav-item",
+    "_blank",
+    "https://github.com/carlosfrontend",
+    ``
+  );
+  const mentionTags = [
+    createText("span", ".footer-nav-item", "Photo by "),
+    createText("span", ".footer-nav-item", "Photo by "),
+    createText("span", ".footer-nav-item", "Photo by "),
+  ];
+
+  mentionTags[0].appendChild(
+    createLink(
+      "a",
+      ".author-link",
+      "_blank",
+      "https://unsplash.com/es/@anna_tukhfatullina?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
+      "Anna Tukhfatullina"
+    )
+  );
+
+  mentionTags[1].appendChild(
+    createLink(
+      "a",
+      ".author-link",
+      "_blank",
+      "https://unsplash.com/es/@catrionaobrian?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
+      "Ekaterina Novitskaya"
+    )
+  );
+
+  mentionTags[2].appendChild(
+    createLink(
+      "a",
+      ".author-link",
+      "_blank",
+      "https://unsplash.com/es/@andersjilden?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
+      "Anders Jildén"
+    )
+  );
+
+  const photoLinks = [
+    createLink(
+      "a",
+      ".photo-link",
+      "_blank",
+      'https://unsplash.com/es/fotos/tarta-de-frambuesa-Mzy-OjtCI70?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash',
+      "Unsplash"
+    ),
+    createLink(
+      "a",
+      ".photo-link",
+      "_blank",
+      'https://unsplash.com/es/fotos/textil-negro-sobre-textil-blanco-gLroHoWh_as?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash',
+      "Unsplash"
+    ),
+    createLink(
+      "a",
+      ".photo-link",
+      "_blank",
+      'https://unsplash.com/es/fotos/vista-aerea-del-pueblo-en-el-acantilado-de-la-montana-durante-la-puesta-del-sol-naranja-cYrMQA7a3Wc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash',
+      "Unsplash"
+    ),
+  ];
+
   ghLogo.classList.add("fa-github");
-  authorInfo.classList.add("author-info");
-  mentionContainerOne.classList.add("mention-container-one");
-  mentionContainerTwo.classList.add("mention-container-two");
-  mentionContainerThree.classList.add("mention-container-three");
-  mentionContainerOne.innerHTML = ` <span>Photo by <a class="mention-link" target="_blank"   href="https://unsplash.com/es/@anna_tukhfatullina?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Anna Tukhfatullina</a> in <a class="mention-link" target="_blank" href="https://unsplash.com/es/fotos/tarta-de-frambuesa-Mzy-OjtCI70?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>`;
-  mentionContainerTwo.innerHTML = `<span>Photo by <a class="mention-link" target="_blank" href="https://unsplash.com/es/@catrionaobrian?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ekaterina Novitskaya</a> in <a class="mention-link"  target="_blank" href="https://unsplash.com/es/fotos/textil-negro-sobre-textil-blanco-gLroHoWh_as?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>`;
-  mentionContainerThree.innerHTML = ` <span>Photo by <a class="mention-link" target="_blank" href="https://unsplash.com/es/@andersjilden?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Anders Jildén</a> in <a class="mention-link" target="_blank" href="https://unsplash.com/es/fotos/vista-aerea-del-pueblo-en-el-acantilado-de-la-montana-durante-la-puesta-del-sol-naranja-cYrMQA7a3Wc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>`;
   footer.appendChild(footerNav);
-  footerNav.appendChild(authorContainer);
-  authorContainer.appendChild(ghLogo);
-  authorInfo.textContent = ` Coded by carlosfrontend - ${new Date().getFullYear()}`;
-  authorContainer.appendChild(authorInfo);
-  footerNav.appendChild(mentionContainerOne);
-  footerNav.appendChild(mentionContainerTwo);
-  footerNav.appendChild(mentionContainerThree);
+  authorItem.appendChild(ghLogo);
+  authorItem.children[0].after(
+    ` Coded by carlosfrontend - ${new Date().getFullYear()}`
+  );
+  footerNav.appendChild(authorItem);
+  for (let i = 0; i < mentionTags.length; i++) {
+    mentionTags[i].children[0].after(" in ");
+    mentionTags[i].appendChild(photoLinks[i]);
+    footerNav.appendChild(mentionTags[i]);
+  }
   return footer;
 };
 const site = () => {
-  const main = document.createElement("div");
+  const main = createSimpleElement("div", ".main");
   const content = document.querySelector("#content");
-  main.classList.add("main");
   content.appendChild(createHeader());
   content.appendChild(main);
   main.appendChild(createHome());

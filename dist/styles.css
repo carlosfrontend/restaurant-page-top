@@ -10,17 +10,208 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
+  height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
-body,
 #content {
   width: 100%;
-  background-color: #ffffff;
+  background-color: gray;
 }
 
+.cake-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cake {
+  width: 100%;
+}
+
+/* HEADER STYLES */
 .header {
+  padding-top: 1em;
+  background-color: #000000;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.logo-container {
+  display: grid;
+  display: grid;
+  grid-column: 1/2;
+}
+
+.logo {
+  height: 4em;
+  padding-top: 0.5em;
+}
+
+.title {
+  font-size: 3rem;
+  font-family: "Satisfy", cursive;
+  color: #ffffff;
+}
+
+.nav {
+  height: 4em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column: 1 / 2;
+  grid-row: 3/4;
+}
+.nav-item {
+  color: #ffffff;
+  font-family: "Bakbak One", sans-serif;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* FOOTER STYLES */
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+.footer-nav {
+  width: 100%;
+  display: grid;
+  grid: 1fr 1fr/ 1fr 1fr;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-nav-item {
+  padding: 1em;
+  color: #ffffff;
+  align-self: center;
+}
+
+.footer-nav-item > * {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.fa-github {
+  font-size: 2em;
+}
+.footer-nav .footer-nav-item:nth-child(1) {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-start;
+  color: #ffffff;
+}
+
+/* HOME SECTION */
+.home-container {
+  background-color: #000000c1;
+  background-image: url("./img/background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.history-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.history-container > * {
+  color: #ffffff;
+}
+.history-container > :nth-child(1) {
+  font-family: "Courgette", cursive;
+  font-size: 2.6rem;
+  text-align: center;
+  align-self: end;
+  padding: 1em;
+}
+
+.history-item {
+  width: 20ch;
+  padding: 1em;
+  display: grid;
+  align-items: center;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  justify-self: center;
+}
+
+/* MEDIA QUERIES*/
+
+@media screen and (min-width: 1024px) {
+  .header {
+    padding-top: 1em;
+    padding-right: 1em;
+    display: grid;
+    grid-template-columns: 1fr 3fr 6fr;
+  }
+
+  .nav {
+    width: 100vw;
+    grid-column: 1/4;
+    justify-items: center;
+    align-self: baseline;
+  }
+  .title-container {
+    display: grid;
+    justify-self: start;
+  }
+
+  .cake {
+    object-fit: cover;
+    width: 80%;
+    height: 100%;
+    border-right: double rgba(123, 33, 33, 0.725);
+    border-left: double rgba(123, 33, 33, 0.725);
+  }
+
+  .home-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .history-item {
+    width: 40vw;
+  }
+
+  .history-title {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    padding-top: 0.5em;
+  }
+  .footer {
+    position: relative;
+    bottom: 0;
+  }
+}
+
+/* .header {
   background-color: #000000;
   width: 100%;
   display: flex;
@@ -158,11 +349,10 @@ body,
 .white {
   color: white;
   font-size: 2rem;
-}
+} */
 
 /* Menu styles */
-.menu-container {
-  /* height: 100vh; */
+/* .menu-container {
   background-color: #00000086;
   background-image: url("./img/board.jpg");
   background-position: center center;
@@ -231,11 +421,11 @@ body,
 .cake-logo {
   width: 40px;
   height: 40px;
-}
+} */
 
 /* Contact styles */
 
-.contact-container {
+/* .contact-container {
   height: 125vh;
   background-color: #00000086;
   background-image: url("./img/contact-background.jpg");
@@ -282,11 +472,11 @@ iframe{
   color:#ffffff;
   font-family: "Courgette", cursive;
   font-size: 1.4rem;
-}
+} */
 
 /* Home Media queries */
 
-@media screen and (min-width: 425px) {
+/* @media screen and (min-width: 425px) {
   .contact-container {
     height: 125vh;
   }
@@ -390,4 +580,4 @@ iframe{
   .title {
     font-size: 2rem;
   }
-}
+} */
