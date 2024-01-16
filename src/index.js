@@ -30,9 +30,13 @@ const showsContact = () => {
 };
 
 const buttons = [...document.querySelectorAll(".nav-item")];
+const logoBtn = document.querySelector(".logo-container");
+const titleBtn = document.querySelector(".title-container");
 const homeBtn = buttons[0];
 const menuBtn = buttons[1];
 const contactBtn = buttons[2];
 homeBtn.addEventListener("click", showsHome);
 menuBtn.addEventListener("click", showsMenu);
 contactBtn.addEventListener("click", showsContact);
+logoBtn.addEventListener("click", showsHome);
+titleBtn.addEventListener("click", showsHome);
